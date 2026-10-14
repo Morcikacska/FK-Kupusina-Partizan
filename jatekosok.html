@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Játékoskártyák</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cards {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--card);
+      border: 2px solid var(--primary);
+      border-radius: 14px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .card .photo {
+      aspect-ratio: 3 / 4;
+      background: repeating-linear-gradient(45deg, var(--bg), var(--bg) 10px, var(--card) 10px, var(--card) 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      opacity: 0.5;
+      font-size: 0.85rem;
+    }
+    .card .number {
+      position: absolute;
+    }
+    .card .info {
+      padding: 0.9rem 0.75rem 1rem;
+      border-top: 2px solid var(--primary);
+    }
+    .card .num {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin: 0;
+    }
+    .card .name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin: 0.2rem 0;
+      color: var(--text);
+    }
+    .card .pos {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--primary);
+      margin: 0;
+    }
+    .group-title {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 0;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--primary);
+    }
+    @media print {
+      body { background: #fff; color: #000; }
+      .hero { display: none; }
+      .card { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Játékoskeret</h1>
+    <p>FK Kupusina Partizan</p>
+  </header>
+
+  <div id="app"></div>
+
+  <script>
+    const players = [
+      { no: 1, name: "Tadián Zsolt", pos: "Kapus" },
+      { no: 2, name: "Limburger Dávid", pos: "Kapus" },
+      { no: 3, name: "Molnár Péter", pos: "Kapus" },
+      { no: 4, name: "Novák Konrád", pos: "Középső hátvéd" },
+      { no: 5, name: "Kiss Gábor", pos: "Középső hátvéd" },
+      { no: 6, name: "Péter István", pos: "Középső hátvéd" },
+      { no: 7, name: "Buják Benjamin", pos: "Középső hátvéd" },
+      { no: 8, name: "Varga Dominik", pos: "Szélső hátvéd" },
+      { no: 9, name: "Zámbó Krisztián", pos: "Szélső hátvéd" },
+      { no: 10, name: "Csizmadia Dávid", pos: "Szélső hátvéd" },
+      { no: 11, name: "Szilágyev Iván", pos: "Szélső hátvéd" },
+      { no: 12, name: "Molnár Levente", pos: "Szélső hátvéd" },
+      { no: 13, name: "Forgács Zsolt", pos: "Középpályás" },
+      { no: 14, name: "Pelt Patrik", pos: "Középpályás" },
+      { no: 15, name: "Danka Roland", pos: "Középpályás" },
+      { no: 16, name: "Buják Balázs", pos: "Középpályás" },
+      { no: 17, name: "Pelt Flórián", pos: "Középpályás" },
+      { no: 18, name: "Jánosi Tamás", pos: "Támadó középpályás" },
+      { no: 19, name: "Guzsvány Dániel", pos: "Támadó középpályás" },
+      { no: 20, name: "Antalovics Krisztián", pos: "Szélső támadó" },
+      { no: 21, name: "Király Kornél", pos: "Szélső támadó" },
+      { no: 22, name: "Guzsvány Viktor", pos: "Szélső támadó" },
+      { no: 23, name: "Nemanja Misura", pos: "Szélső támadó" },
+      { no: 24, name: "Silling István", pos: "Szélső támadó" },
+      { no: 25, name: "Lukácsevity Noel", pos: "Szélső támadó" },
+      { no: 26, name: "Csernai Botond", pos: "Csatár" },
+      { no: 27, name: "Raic Dániel", pos: "Csatár" },
+      { no: 28, name: "Molnár Gábor", pos: "Csatár" }
+    ];
+
+    const app = document.getElementById("app");
+    const groups = [];
+    players.forEach(p => {
+      let g = groups.find(x => x.pos === p.pos);
+      if (!g) { g = { pos: p.pos, list: [] }; groups.push(g); }
+      g.list.push(p);
+    });
+
+    groups.forEach(g => {
+      const title = document.createElement("h2");
+      title.className = "group-title";
+      title.textContent = g.pos;
+      app.appendChild(title);
+
+      const grid = document.createElement("div");
+      grid.className = "cards";
+      g.list.forEach(p => {
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="photo">Fotó helye</div>
+          <div class="info">
+            <p class="num">#${p.no}</p>
+            <p class="name"></p>
+            <p class="pos"></p>
+          </div>`;
+        card.querySelector(".name").textContent = p.name;
+        card.querySelector(".pos").textContent = p.pos;
+        grid.appendChild(card);
+      });
+      app.appendChild(grid);
+    });
+  </script>
+</body>
+</html>
