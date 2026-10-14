@@ -1,17 +1,30 @@
 :root {
-  --primary: #b71c1c;
-  --primary-dark: #7f1212;
+  --primary: #111111;
+  --primary-dark: #000000;
   --text: #1f1f1f;
-  --bg: #f7f7f7;
+  --bg: #f4f4f4;
   --card: #ffffff;
+  --hero-text: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --primary: #f2f2f2;
+    --primary-dark: #ffffff;
     --text: #f2f2f2;
-    --bg: #161616;
-    --card: #222222;
+    --bg: #111111;
+    --card: #1c1c1c;
+    --hero-text: #111111;
   }
+}
+
+:root[data-theme="dark"] {
+  --primary: #f2f2f2;
+  --primary-dark: #ffffff;
+  --text: #f2f2f2;
+  --bg: #111111;
+  --card: #1c1c1c;
+  --hero-text: #111111;
 }
 
 * { box-sizing: border-box; }
@@ -26,7 +39,7 @@ body {
 
 .hero {
   background: var(--primary);
-  color: #fff;
+  color: var(--hero-text);
   text-align: center;
   padding: 4rem 1rem;
 }
