@@ -4,33 +4,104 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FK Kupusina Partizan</title>
+  <meta name="description" content="Az FK Kupusina Partizan focicsapat oldala, Kupuszin, Szerbia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Big+Shoulders+Display:wght@600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="hero">
-    <h1>FK Kupusina Partizan</h1>
-    <p>Kupusina (Kupuszin), Szerbia</p>
+<body class="home">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">FK Kupusina Partizan</a>
+      <nav aria-label="Fő menü">
+        <ul class="nav">
+          <li><a href="index.html" aria-current="page">Főoldal</a></li>
+          <li><a href="jatekosok.html">Keret</a></li>
+          <li><a href="#merkozesek">Mérkőzések</a></li>
+          <li><a href="#kapcsolat">Kapcsolat</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Rólunk</h2>
-      <p>Itt lesz a csapat bemutatkozása: története, célkitűzései és a közösség, ami köré épül.</p>
+    <section class="hero" aria-label="Címlap">
+      <div class="wrap">
+        <div class="crest">
+          <h1><span>FK Kupusina</span>Partizan</h1>
+          <p>Kupuszin, Szerbia</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Csapat</h2>
-      <p>Játékosok, edzők és vezetőség listája hamarosan.</p>
+    <section class="section" id="klub">
+      <div class="wrap split">
+        <div>
+          <h2>A klub</h2>
+          <p class="lead">Kupuszini focicsapat, amely a falu közösségéből nőtt ki, és a falu közösségéért játszik.</p>
+        </div>
+        <div>
+          <p class="muted">Ide kerül a klub története: mikor alakult, kik indították el, és mit jelent a csapat a falunak. Ha elküldöd a szöveget, ide beírom.</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Kapcsolat</h2>
-      <p>E-mail: <a href="mailto:info@example.com">info@example.com</a></p>
+    <section class="section section--dark" id="keret">
+      <div class="wrap">
+        <h2>A keret</h2>
+        <p class="lead">28 játékos, kapustól csatárig.</p>
+        <div class="squad-count" id="squad-count"></div>
+        <a class="button" href="jatekosok.html">Játékosok megtekintése</a>
+      </div>
+    </section>
+
+    <section class="section" id="merkozesek">
+      <div class="wrap">
+        <h2>Mérkőzések</h2>
+        <div class="empty">
+          <p>Még nincs kiírva mérkőzés. Amint megvan a sorsolás, itt látod a következő meccs idejét, helyszínét és az ellenfelet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kapcsolat">
+      <div class="wrap split">
+        <div>
+          <h2>Kapcsolat</h2>
+          <p class="lead">Játszanál nálunk, vagy támogatnád a csapatot? Keress minket.</p>
+        </div>
+        <ul class="contact-list">
+          <li><span>Pálya</span>Somborski put, Kupusina, Szerbia</li>
+          <li><span>E-mail</span><a href="mailto:info@example.com">info@example.com</a></li>
+        </ul>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 FK Kupusina Partizan</p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; 2026 FK Kupusina Partizan</span>
+      <span>Kupuszin, Szerbia</span>
+    </div>
   </footer>
+
+  <script src="players.js"></script>
+  <script>
+    const counts = [
+      ["Kapus", ["Kapus"]],
+      ["Védő", ["Középső hátvéd", "Szélső hátvéd"]],
+      ["Középpályás", ["Középpályás", "Támadó középpályás"]],
+      ["Támadó", ["Szélső támadó", "Csatár"]]
+    ];
+    const box = document.getElementById("squad-count");
+    counts.forEach(([label, positions]) => {
+      const n = PLAYERS.filter(p => positions.includes(p.pos)).length;
+      const div = document.createElement("div");
+      div.innerHTML = `<strong>${n}</strong>`;
+      div.append(label);
+      box.appendChild(div);
+    });
+  </script>
 </body>
 </html>
