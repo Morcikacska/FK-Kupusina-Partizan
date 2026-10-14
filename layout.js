@@ -70,7 +70,7 @@ function renderHeader() {
     ul.append(el("li", {}, el("a", { href, text: label, "aria-current": key === page ? "page" : null })));
   });
   const brand = el("a", { class: "brand", href: "index.html" },
-    el("img", { src: "crest.svg", alt: "" }),
+    el("img", { src: "logo.png", alt: "" }),
     el("b", { text: SITE.club.shortA }), el("span", { text: SITE.club.shortB }));
   const header = el("header", { class: "site-header" },
     el("div", { class: "wrap" }, brand, el("nav", { "aria-label": "Fő menü" }, ul)));
@@ -93,7 +93,7 @@ function renderFooter() {
   const footer = el("footer", { class: "site-footer" },
     el("div", { class: "wrap footer-grid" },
       el("div", {},
-        el("img", { src: "crest.svg", alt: "" }),
+        el("img", { src: "logo.png", alt: "" }),
         el("h3", { text: SITE.club.name }),
         el("p", { text: SITE.club.intro })),
       el("div", {}, el("span", { class: "eyebrow", text: "Oldalak" }), pages),

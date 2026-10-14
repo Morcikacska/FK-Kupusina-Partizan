@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FK Kupusina Partizan</title>
-  <meta name="description" content="Az FK Kupusina Partizan focicsapat oldala: mérkőzések, eredmények, hírek és a keret.">
-  <link rel="icon" href="crest.svg">
+  <title>FK Partizan Kupuszina</title>
+  <meta name="description" content="Az FK Partizan Kupuszina focicsapat oldala: mérkőzések, eredmények, hírek és a keret.">
+  <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Extra+Condensed:wght@500;600&display=swap" rel="stylesheet">
@@ -15,13 +15,16 @@
   <main>
     <section class="hero">
       <div class="hero-pitch" aria-hidden="true"></div>
-      <div class="wrap">
+      <div class="wrap hero-grid">
+        <img class="hero-crest" src="logo.png" alt="Az FK Partizan Kupuszina címere" width="512" height="512">
+        <div>
         <span class="eyebrow" id="hero-eyebrow"></span>
         <h1><span id="hero-a" style="color:inherit"></span><span id="hero-b"></span></h1>
         <p id="hero-intro"></p>
         <div class="actions">
           <a class="btn" href="jatekosok.html">Csapatkeret</a>
           <a class="btn btn--ghost" href="kapcsolat.html">Kapcsolat</a>
+        </div>
         </div>
       </div>
     </section>
@@ -100,7 +103,7 @@
       nextBox.append(emptyBox("Még nincs kiírva a következő mérkőzés. Amint megvan a sorsolás, itt látod az időpontot, a helyszínt és az ellenfelet."));
     } else {
       if (nm.round) document.getElementById("next-eyebrow").textContent = [C.league, nm.round].filter(Boolean).join(" · ");
-      const us = el("div", { class: "team" }, el("img", { src: "crest.svg", alt: "" }), el("strong", { text: C.name }));
+      const us = el("div", { class: "team" }, el("img", { src: "logo.png", alt: "" }), el("strong", { text: C.name }));
       const them = el("div", { class: "team" }, el("span", { class: "badge", text: initials(nm.opponent.replace(/^FK\s+/i, "")) }), el("strong", { text: nm.opponent }));
       const [left, right] = nm.home ? [us, them] : [them, us];
 

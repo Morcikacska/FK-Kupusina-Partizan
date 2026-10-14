@@ -6,9 +6,9 @@
 
 const SITE = {
   club: {
-    name: "FK Kupusina Partizan",
+    name: "FK Partizan Kupuszina",
     shortA: "Partizan",          // a logó melletti név első (vastag) része
-    shortB: "Kupusina",          // a logó melletti név második (halvány) része
+    shortB: "Kupuszina",          // a logó melletti név második (halvány) része
     town: "Kupuszin, Szerbia",
     league: "",                  // pl. "Vajdasági Liga"
     founded: "",                 // pl. "1932"
