@@ -7,12 +7,12 @@
 const SITE = {
   club: {
     name: "FK Partizan Kupuszina",
-    shortA: "Partizan",          // a logó melletti név első (vastag) része
-    shortB: "Kupuszina",          // a logó melletti név második (halvány) része
-    town: "Kupuszin, Szerbia",
+    shortA: "FK Partizan",       // a logó melletti név első (halvány) része
+    shortB: "Kupuszina",         // a logó melletti név második (kiemelt) része
+    town: "Kupuszina, Szerbia",
     league: "",                  // pl. "Vajdasági Liga"
     founded: "",                 // pl. "1932"
-    intro: "Kupuszini focicsapat, amely a falu közösségéből nőtt ki, és a falu közösségéért játszik.",
+    intro: "Kupuszinai focicsapat, amely a falu közösségéből nőtt ki, és a falu közösségéért játszik.",
     heroPhoto: ""                // pl. "kepek/hero.jpg" (fekete-fehérre színezve jelenik meg)
   },
 
@@ -23,7 +23,7 @@ const SITE = {
   },
 
   // Következő mérkőzés. Ha nincs, legyen null.
-  // Példa: { date: "2026-10-18T15:00", opponent: "FK Példa", home: true, round: "12. forduló", venue: "Kupuszini pálya" }
+  // Példa: { date: "2026-10-18T15:00", opponent: "FK Példa", home: true, round: "12. forduló", venue: "Kupuszinai pálya" }
   nextMatch: null,
 
   // Lejátszott meccsek, a legújabb legyen elöl.

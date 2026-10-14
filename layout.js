@@ -71,7 +71,7 @@ function renderHeader() {
   });
   const brand = el("a", { class: "brand", href: "index.html" },
     el("img", { src: "logo.png", alt: "" }),
-    el("b", { text: SITE.club.shortA }), el("span", { text: SITE.club.shortB }));
+    el("span", { text: SITE.club.shortA }), el("b", { text: SITE.club.shortB }));
   const header = el("header", { class: "site-header" },
     el("div", { class: "wrap" }, brand, el("nav", { "aria-label": "Fő menü" }, ul)));
   const ticker = renderTicker();
