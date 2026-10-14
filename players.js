@@ -1,5 +1,5 @@
-// A keret adatai. Fotó hozzáadása: tedd a képet a kepek/ mappába,
-// és írd a fájlnevet a játékos "photo" mezőjébe, pl. photo: "kepek/tadian-zsolt.jpg"
+// A keret adatai (a "Játékosok névsor" táblázatból generálva).
+// Fotó hozzáadása: tedd a képet a kepek/ mappába, és add hozzá a játékoshoz: photo: "kepek/nev.jpg"
 const PLAYERS = [
   { name: "Tadián Zsolt", pos: "Kapus" },
   { name: "Limburger Dávid", pos: "Kapus" },
@@ -9,7 +9,7 @@ const PLAYERS = [
   { name: "Péter István", pos: "Középső hátvéd" },
   { name: "Buják Benjamin", pos: "Középső hátvéd" },
   { name: "Varga Dominik", pos: "Szélső hátvéd" },
-  { name: "Zámbó Krisztián", pos: "Szélső hátvéd" },
+  { name: "Zámbó Adrián", pos: "Szélső hátvéd" },
   { name: "Csizmadia Dávid", pos: "Szélső hátvéd" },
   { name: "Szilágyev Iván", pos: "Szélső hátvéd" },
   { name: "Molnár Levente", pos: "Szélső hátvéd" },
