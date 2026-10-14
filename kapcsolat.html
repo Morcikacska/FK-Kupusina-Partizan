@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kapcsolat | FK Kupusina Partizan</title>
+  <link rel="icon" href="crest.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Extra+Condensed:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="contact">
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <span class="eyebrow">Kapcsolat</span>
+        <h1>Keress minket</h1>
+        <p>Játszanál nálunk, támogatnád a csapatot, vagy kérdésed van a meccsekről? Írj vagy hívj.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <ul class="contact-list" id="contact"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="layout.js"></script>
+  <script>
+    const c = SITE.contact;
+    const list = document.getElementById("contact");
+    const item = (label, content) => list.append(el("li", {}, el("span", { class: "eyebrow", text: label }), content));
+    if (c.email) item("E-mail", el("a", { href: "mailto:" + c.email, text: c.email }));
+    if (c.phone) item("Telefon", el("a", { href: "tel:" + c.phone.replace(/\s/g, ""), text: c.phone }));
+    if (c.address) item("Pálya", document.createTextNode(c.address));
+    if (!c.email && !c.phone) list.after(emptyBox("Az e-mail-cím és a telefonszám hamarosan felkerül."));
+  </script>
+</body>
+</html>

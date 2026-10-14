@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hírek | FK Kupusina Partizan</title>
+  <link rel="icon" href="crest.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Extra+Condensed:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="news">
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <span class="eyebrow">Klubhírek</span>
+        <h1>Hírek</h1>
+        <p>Meccsbeszámolók, klubhírek és utánpótlás-hírek a csapattól.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap" id="news"></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="layout.js"></script>
+  <script>
+    const box = document.getElementById("news");
+    if (!SITE.news.length) {
+      box.append(emptyBox("Még nincs hír. Az első meccsbeszámoló vagy klubhír ide kerül."));
+    } else {
+      const grid = el("div", { class: "news-grid news-grid--feature" });
+      SITE.news.forEach(n => grid.append(newsCard(n)));
+      box.append(grid);
+    }
+  </script>
+</body>
+</html>

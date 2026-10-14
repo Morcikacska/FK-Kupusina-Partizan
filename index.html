@@ -4,104 +4,182 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FK Kupusina Partizan</title>
-  <meta name="description" content="Az FK Kupusina Partizan focicsapat oldala, Kupuszin, Szerbia.">
+  <meta name="description" content="Az FK Kupusina Partizan focicsapat oldala: mérkőzések, eredmények, hírek és a keret.">
+  <link rel="icon" href="crest.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Big+Shoulders+Display:wght@600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Extra+Condensed:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="home">
-  <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href="index.html">FK Kupusina Partizan</a>
-      <nav aria-label="Fő menü">
-        <ul class="nav">
-          <li><a href="index.html" aria-current="page">Főoldal</a></li>
-          <li><a href="jatekosok.html">Keret</a></li>
-          <li><a href="#merkozesek">Mérkőzések</a></li>
-          <li><a href="#kapcsolat">Kapcsolat</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
+<body data-page="home">
   <main>
-    <section class="hero" aria-label="Címlap">
+    <section class="hero">
+      <div class="hero-pitch" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="crest">
-          <h1><span>FK Kupusina</span>Partizan</h1>
-          <p>Kupuszin, Szerbia</p>
+        <span class="eyebrow" id="hero-eyebrow"></span>
+        <h1><span id="hero-a" style="color:inherit"></span><span id="hero-b"></span></h1>
+        <p id="hero-intro"></p>
+        <div class="actions">
+          <a class="btn" href="jatekosok.html">Csapatkeret</a>
+          <a class="btn btn--ghost" href="kapcsolat.html">Kapcsolat</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="klub">
-      <div class="wrap split">
-        <div>
-          <h2>A klub</h2>
-          <p class="lead">Kupuszini focicsapat, amely a falu közösségéből nőtt ki, és a falu közösségéért játszik.</p>
-        </div>
-        <div>
-          <p class="muted">Ide kerül a klub története: mikor alakult, kik indították el, és mit jelent a csapat a falunak. Ha elküldöd a szöveget, ide beírom.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--dark" id="keret">
+    <section class="section" id="kovetkezo">
       <div class="wrap">
-        <h2>A keret</h2>
-        <p class="lead">28 játékos, kapustól csatárig.</p>
-        <div class="squad-count" id="squad-count"></div>
-        <a class="button" href="jatekosok.html">Játékosok megtekintése</a>
+        <span class="eyebrow" id="next-eyebrow">Mérkőzés</span>
+        <h2>Következő mérkőzés</h2>
+        <div id="next-match"></div>
       </div>
     </section>
 
-    <section class="section" id="merkozesek">
-      <div class="wrap">
-        <h2>Mérkőzések</h2>
-        <div class="empty">
-          <p>Még nincs kiírva mérkőzés. Amint megvan a sorsolás, itt látod a következő meccs idejét, helyszínét és az ellenfelet.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="kapcsolat">
-      <div class="wrap split">
+    <section class="section">
+      <div class="wrap two-col">
         <div>
-          <h2>Kapcsolat</h2>
-          <p class="lead">Játszanál nálunk, vagy támogatnád a csapatot? Keress minket.</p>
+          <span class="eyebrow">Forma</span>
+          <h2>Legutóbbi eredmények</h2>
+          <div id="results"></div>
+          <span class="eyebrow sub-title">Következő fordulók</span>
+          <div id="fixtures"></div>
         </div>
-        <ul class="contact-list">
-          <li><span>Pálya</span>Somborski put, Kupusina, Szerbia</li>
-          <li><span>E-mail</span><a href="mailto:info@example.com">info@example.com</a></li>
-        </ul>
+        <div>
+          <span class="eyebrow" id="league-eyebrow">Bajnokság</span>
+          <h2>Tabella</h2>
+          <div id="table"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="news-head">
+          <div>
+            <span class="eyebrow">Klubhírek</span>
+            <h2>Legfrissebb hírek</h2>
+          </div>
+          <a class="more" href="hirek.html">Összes hír</a>
+        </div>
+        <div id="news"></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="hero-pitch" aria-hidden="true"></div>
+      <div class="wrap">
+        <h2>Gyere ki a következő meccsre</h2>
+        <p>A hazai mérkőzéseket a kupuszini pályán játsszuk. Hozd a családot és a barátokat is.</p>
+        <a class="btn" href="kapcsolat.html">Kapcsolatfelvétel</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <span>&copy; 2026 FK Kupusina Partizan</span>
-      <span>Kupuszin, Szerbia</span>
-    </div>
-  </footer>
-
-  <script src="players.js"></script>
+  <script src="data.js"></script>
+  <script src="layout.js"></script>
   <script>
-    const counts = [
-      ["Kapus", ["Kapus"]],
-      ["Védő", ["Középső hátvéd", "Szélső hátvéd"]],
-      ["Középpályás", ["Középpályás", "Támadó középpályás"]],
-      ["Támadó", ["Szélső támadó", "Csatár"]]
-    ];
-    const box = document.getElementById("squad-count");
-    counts.forEach(([label, positions]) => {
-      const n = PLAYERS.filter(p => positions.includes(p.pos)).length;
-      const div = document.createElement("div");
-      div.innerHTML = `<strong>${n}</strong>`;
-      div.append(label);
-      box.appendChild(div);
-    });
+    const C = SITE.club;
+
+    // Hero
+    document.getElementById("hero-eyebrow").textContent =
+      [C.league, C.founded && "Alapítva " + C.founded].filter(Boolean).join(" · ") || C.town;
+    document.getElementById("hero-a").textContent = C.shortA;
+    document.getElementById("hero-b").textContent = C.shortB;
+    document.getElementById("hero-intro").textContent = C.intro;
+    if (C.heroPhoto) {
+      const bg = el("div", { class: "hero-bg", "aria-hidden": "true" });
+      bg.style.backgroundImage = `url("${C.heroPhoto}")`;
+      document.querySelector(".hero").prepend(bg);
+      document.querySelector(".hero .hero-pitch").remove();
+    }
+    if (C.league) document.getElementById("league-eyebrow").textContent = C.league;
+
+    // Következő mérkőzés
+    const nm = SITE.nextMatch;
+    const nextBox = document.getElementById("next-match");
+    if (!nm) {
+      nextBox.append(emptyBox("Még nincs kiírva a következő mérkőzés. Amint megvan a sorsolás, itt látod az időpontot, a helyszínt és az ellenfelet."));
+    } else {
+      if (nm.round) document.getElementById("next-eyebrow").textContent = [C.league, nm.round].filter(Boolean).join(" · ");
+      const us = el("div", { class: "team" }, el("img", { src: "crest.svg", alt: "" }), el("strong", { text: C.name }));
+      const them = el("div", { class: "team" }, el("span", { class: "badge", text: initials(nm.opponent.replace(/^FK\s+/i, "")) }), el("strong", { text: nm.opponent }));
+      const [left, right] = nm.home ? [us, them] : [them, us];
+
+      const cd = el("div", { class: "countdown", role: "timer", "aria-label": "Hátralévő idő a kezdésig" });
+      const units = [["nap", 86400], ["óra", 3600], ["perc", 60], ["mp", 1]].map(([label, s]) => {
+        const strong = el("strong", { text: "00" });
+        cd.append(el("div", {}, strong, el("span", { text: label })));
+        return [strong, s];
+      });
+      const target = new Date(nm.date).getTime();
+      function tick() {
+        let left = Math.max(0, Math.floor((target - Date.now()) / 1000));
+        units.forEach(([node, s]) => { node.textContent = String(Math.floor(left / s)).padStart(2, "0"); left %= s; });
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      nextBox.append(el("div", { class: "match" },
+        el("div", { class: "match-top" },
+          el("span", { class: "eyebrow", text: [C.league, nm.round].filter(Boolean).join(" · ") || "Bajnoki mérkőzés" }),
+          el("span", { class: "eyebrow", text: nm.home ? "Hazai pálya" : "Idegenben" })),
+        el("div", { class: "teams" }, left, el("span", { class: "vs", text: "VS" }), right),
+        el("div", { class: "match-bottom" }, cd,
+          el("div", { class: "match-meta" }, el("div", { text: longDate(nm.date) }), nm.venue ? el("div", { text: nm.venue }) : null))));
+    }
+
+    // Eredmények
+    const resBox = document.getElementById("results");
+    if (!SITE.results.length) {
+      resBox.append(emptyBox("Még nincs rögzített eredmény."));
+    } else {
+      const rows = el("div", { class: "rows" });
+      SITE.results.slice(0, 6).forEach(r => {
+        const [cls, code, word] = resultCode(r);
+        rows.append(el("div", { class: "row" },
+          el("span", { class: "date", text: shortDate(r.date) }),
+          el("span", { class: "res res--" + cls, text: code, title: word }),
+          el("span", { class: "opp", text: `${r.home ? "Hazai" : "Idegenben"} · ${r.opponent}` }),
+          el("span", { class: "score", text: `${r.gf}–${r.ga}` })));
+      });
+      resBox.append(rows);
+    }
+
+    // Következő fordulók
+    const fixBox = document.getElementById("fixtures");
+    if (!SITE.fixtures.length) {
+      fixBox.append(emptyBox("A további fordulók a sorsolás után kerülnek ide."));
+    } else {
+      const rows = el("div", { class: "rows" });
+      SITE.fixtures.slice(0, 5).forEach(f => rows.append(el("div", { class: "row row--fixture" },
+        el("span", { class: "date", text: shortDate(f.date) }),
+        el("span", { class: "opp", text: f.opponent }),
+        el("span", { class: "where", text: f.home ? "Hazai" : "Idegenben" }))));
+      fixBox.append(rows);
+    }
+
+    // Tabella
+    const tBox = document.getElementById("table");
+    if (!SITE.table.length) {
+      tBox.append(emptyBox("A tabella a bajnokság indulása után jelenik meg itt."));
+    } else {
+      const tbody = el("tbody");
+      SITE.table.forEach((t, i) => tbody.append(el("tr", { class: t.team === C.name ? "us" : null },
+        el("td", { text: i + 1 }), el("td", { text: t.team }), el("td", { text: t.m }), el("td", { text: t.gy }),
+        el("td", { text: t.d }), el("td", { text: t.v }), el("td", { text: `${t.gf}:${t.ga}` }))));
+      const head = el("tr");
+      ["#", "Csapat", "M", "GY", "D", "V", "Gólok"].forEach(h => head.append(el("th", { scope: "col", text: h })));
+      tBox.append(el("div", { class: "table-wrap" }, el("table", {}, el("thead", {}, head), tbody)));
+    }
+
+    // Hírek
+    const nBox = document.getElementById("news");
+    if (!SITE.news.length) {
+      nBox.append(emptyBox("Még nincs hír. Az első meccsbeszámoló vagy klubhír ide kerül."));
+    } else {
+      const grid = el("div", { class: "news-grid" });
+      SITE.news.slice(0, 3).forEach(n => grid.append(newsCard(n)));
+      nBox.append(grid);
+    }
   </script>
 </body>
 </html>
